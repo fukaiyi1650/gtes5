@@ -44,3 +44,5 @@ build/
 
 ### VUE ###
 node_modules
+
+**/*.pdb

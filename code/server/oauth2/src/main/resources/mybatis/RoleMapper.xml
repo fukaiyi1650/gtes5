@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yitiankeji.mapper.RoleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="roleResultMap" type="com.yitiankeji.entity.Role">
+        <id column="role_id" property="roleId" />
+        <result column="name" property="name" />
+        <result column="sort" property="sort" />
+        <result column="remark" property="remark" />
+        <collection property="menus" ofType="com.yitiankeji.entity.Menu" fetchType="eager" column="role_id" select="com.yitiankeji.mapper.MenuMapper.findByRoleId"></collection>
+    </resultMap>
+
+    <select id="findByManagerId" parameterType="java.lang.Integer" resultMap="roleResultMap">
+       SELECT
+            ro.*
+        FROM
+            sys_manager_role mr
+        LEFT JOIN sys_role ro ON mr.role_id=ro.role_id
+        WHERE
+            mr.manager_id=#{managerId}
+    </select>
+</mapper>

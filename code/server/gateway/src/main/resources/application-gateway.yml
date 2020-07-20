@@ -1,0 +1,31 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: system-consumer
+          uri: lb://gte-system-consumer/
+          predicates:
+            - Path=/api/**
+          filters:
+            - StripPrefix=1
+            #filters名称必须是RequestRateLimiter
+            - name: RequestRateLimiter
+              args:
+                #使用SpEL按名称引用bean
+                key-resolver: "#{@remoteAddrKeyResolver}"
+                #请允用户每秒钟处理多少个请求
+                redis-rate-limiter.replenishRate: 10
+                #令牌桶的容量，允许每秒钟内完成的最大的请求数
+                redis-rate-limiter.burshCapacity: 50
+        - id: auth
+          uri: lb://oauth/
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+        - id: auth
+          uri: lb://oauth-client/
+          predicates:
+            - Path=/member/**
+          filters:
+            - StripPrefix=1
