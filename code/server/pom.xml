@@ -18,12 +18,15 @@
     <description>平价外卖平台</description>
 
     <modules>
+        <module>customer</module>
         <module>gateway</module>
+        <module>generator</module>
+        <module>manager-web</module>
         <module>monitor</module>
         <module>oauth2</module>
-        <module>oauth2-common</module>
         <module>oauth2-client</module>
-        <module>manager-web</module>
+        <module>oauth2-common</module>
+        <module>dbdeploy</module>
     </modules>
 
 
