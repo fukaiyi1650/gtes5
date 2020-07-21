@@ -55,9 +55,77 @@
 <#macro operate addUrl count>
     <div class="cl pd-5 bg-1 bk-gray mt-20">
             <span class="l">
-                <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-                <a href="javascript:;" onclick="member_add('添加用户','${ctx}${addUrl}','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a>
+                <a href="javascript:void(0);" onclick="batchDelete()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+                <a href="javascript:void(0);" onclick="layer_show('添加用户','${ctx}${addUrl}','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a>
             </span>
         <span class="r">共有数据：<strong>${count}</strong> 条</span>
     </div>
 </#macro>
+
+<#macro textfield id label value="" required=true>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3"><#if required><span class="c-red">*</span></#if>${label}：</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <input type="text" class="input-text" value="" placeholder="" id="${id}" name="${id}">
+        </div>
+    </div>
+</#macro>
+
+<#macro filefield id label required=true>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3"><#if required><span class="c-red">*</span></#if>${label}：</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <span class="btn-upload form-group">
+                <input class="input-text upload-url" type="text" id="${id}" name="${id}" readonly nullmsg="请添加附件！" style="width:200px">
+                <a href="javascript:void(0);" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont">&#xe642;</i> 浏览文件</a>
+                <input type="file" multiple name="file-2" class="input-file">
+            </span>
+        </div>
+    </div>
+</#macro>
+
+<#macro selectfield id label>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">${label}：</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <span class="select-box">
+				<select class="select" size="1" id="${id}" name="${id}">
+                    <#nested />
+				</select>
+            </span>
+        </div>
+    </div>
+</#macro>
+
+<#macro areafield id label minlength=1 maxlength=100>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3" for="${id}">${label}：</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <textarea id="${id}" name="${id}" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入${minlength}个字符" onKeyUp="$.Huitextarealength(this,${maxlength})"></textarea>
+            <p class="textarea-numberbar"><em class="textarea-length">0</em>/${maxlength}</p>
+        </div>
+    </div>
+</#macro>
+
+<#macro submit>
+    <div class="row cl">
+        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+            <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+        </div>
+    </div>
+</#macro>
+
+<#macro radiofield name label items required=true>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3"><#if required><span class="c-red">*</span></#if>${label}：</label>
+        <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+            <#list items as item>
+                <div class="radio-box">
+                    <input name="sex" type="radio" id="${name}-${item_index}" value="${item[1]}" <#if item_index==0>checked</#if>>
+                    <label for="${name}-${item_index}">${item[0]}</label>
+                </div>
+            </#list>
+        </div>
+    </div>
+</#macro>
+

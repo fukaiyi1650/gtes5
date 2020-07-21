@@ -18,6 +18,11 @@ public class MemberController {
         return "/member/add";
     }
 
+    @GetMapping("/member/edit")
+    public String add(Integer id) {
+        return "/member/edit";
+    }
+
     @ResponseBody
     @PostMapping("/member/page")
     public String page() {

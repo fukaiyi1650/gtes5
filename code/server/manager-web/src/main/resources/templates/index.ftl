@@ -6,21 +6,21 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">H-ui.admin</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a>
 			<span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span>
-			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:void(0);">&#xe667;</a>
 			<nav class="nav navbar-nav">
 				<ul class="cl">
-					<li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
+					<li class="dropDown dropDown_hover"><a href="javascript:void(0);" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
 						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
-							<li><a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
-							<li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
-							<li><a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
+							<li><a href="javascript:void(0);" onclick="article_add('添加资讯','article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
+							<li><a href="javascript:void(0);" onclick="picture_add('添加资讯','picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
+							<li><a href="javascript:void(0);" onclick="product_add('添加资讯','product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
+							<li><a href="javascript:void(0);" onclick="member_add('添加用户','member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
 						</ul>
-					<li class="navbar-levelone current"><a href="javascript:;">平台</a></li>
-					<li class="navbar-levelone"><a href="javascript:;">商城</a></li>
-					<li class="navbar-levelone"><a href="javascript:;">财务</a></li>
-					<li class="navbar-levelone"><a href="javascript:;">手机</a></li>
 					</li>
+					<li class="navbar-levelone current"><a href="javascript:void(0);">平台</a></li>
+					<li class="navbar-levelone"><a href="javascript:void(0);">商城</a></li>
+					<li class="navbar-levelone"><a href="javascript:void(0);">财务</a></li>
+					<li class="navbar-levelone"><a href="javascript:void(0);">手机</a></li>
 				</ul>
 			</nav>
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
@@ -29,20 +29,20 @@
 					<li class="dropDown dropDown_hover">
 						<a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
 						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
+							<li><a href="javascript:void(0);" onClick="myselfinfo()">个人信息</a></li>
 							<li><a href="#">切换账户</a></li>
 							<li><a href="#">退出</a></li>
 						</ul>
 					</li>
 					<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
-					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
+					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:void(0);" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
 						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
-							<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
-							<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
-							<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
-							<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
-							<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
+							<li><a href="javascript:void(0);" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
+							<li><a href="javascript:void(0);" data-val="blue" title="蓝色">蓝色</a></li>
+							<li><a href="javascript:void(0);" data-val="green" title="绿色">绿色</a></li>
+							<li><a href="javascript:void(0);" data-val="red" title="红色">红色</a></li>
+							<li><a href="javascript:void(0);" data-val="yellow" title="黄色">黄色</a></li>
+							<li><a href="javascript:void(0);" data-val="orange" title="橙色">橙色</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -82,7 +82,7 @@
 			<dt><i class="Hui-iconfont">&#xe622;</i> 评论管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="http://h-ui.duoshuo.com/admin/" data-title="评论列表" href="javascript:;">评论列表</a></li>
+					<li><a data-href="http://h-ui.duoshuo.com/admin/" data-title="评论列表" href="javascript:void(0);">评论列表</a></li>
 					<li><a data-href="feedback-list.html" data-title="意见反馈" href="javascript:void(0)">意见反馈</a></li>
 				</ul>
 			</dd>
@@ -91,10 +91,10 @@
 			<dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="${ctx}/member/list.html" data-title="会员列表" href="javascript:;">会员列表</a></li>
-					<li><a data-href="member-del.html" data-title="删除的会员" href="javascript:;">删除的会员</a></li>
-					<li><a data-href="member-level.html" data-title="等级管理" href="javascript:;">等级管理</a></li>
-					<li><a data-href="member-scoreoperation.html" data-title="积分管理" href="javascript:;">积分管理</a></li>
+					<li><a data-href="${ctx}/member/list.html" data-title="会员列表" href="javascript:void(0);">会员列表</a></li>
+					<li><a data-href="member-del.html" data-title="删除的会员" href="javascript:void(0);">删除的会员</a></li>
+					<li><a data-href="member-level.html" data-title="等级管理" href="javascript:void(0);">等级管理</a></li>
+					<li><a data-href="member-scoreoperation.html" data-title="积分管理" href="javascript:void(0);">积分管理</a></li>
 					<li><a data-href="member-record-browse.html" data-title="浏览记录" href="javascript:void(0)">浏览记录</a></li>
 					<li><a data-href="member-record-download.html" data-title="下载记录" href="javascript:void(0)">下载记录</a></li>
 					<li><a data-href="member-record-share.html" data-title="分享记录" href="javascript:void(0)">分享记录</a></li>
@@ -183,12 +183,12 @@
 					<em></em></li>
 			</ul>
 		</div>
-		<div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
+		<div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:void(0);"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:void(0);"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
 	</div>
 	<div id="iframe_box" class="Hui-article">
 		<div class="show_iframe">
 			<div style="display:none" class="loading"></div>
-			<iframe scrolling="yes" frameborder="0" src="welcome.html"></iframe>
+			<iframe scrolling="yes" frameborder="0" src="${ctx}/welcome.html"></iframe>
 		</div>
 	</div>
 </section>
@@ -228,7 +228,7 @@
 			tabBar:".navbar-wrapper .navbar-levelone",
 			tabCon:".Hui-aside .menu_dropdown",
 			className:"current",
-			index:0,
+			index:0
 		});
 	});
 	/*个人信息*/
