@@ -1,0 +1,129 @@
+{
+  "success": null,
+  "draw": 3,
+  "recordsTotal": 20,
+  "recordsFiltered": 20,
+  "error": null,
+  "data": [
+    {
+      "id": 2278,
+      "username": "11a",
+      "password": "",
+      "phone": 123456,
+      "email": "abc@qq.com",
+      "created": 1595312321000,
+      "updated": 1595312321000,
+      "sex": 1,
+      "address": "上海",
+      "status": 0
+    },
+    {
+      "id": 2277,
+      "username": "asdqwe",
+      "password": "",
+      "phone": 123456,
+      "email": "abc@qq.com",
+      "created": 1595298226000,
+      "updated": 1595298226000,
+      "sex": 1,
+      "address": "上海",
+      "status": 0
+    },
+    {
+      "id": 2276,
+      "username": "2212060773",
+      "password": "",
+      "phone": 123456,
+      "email": "abc@qq.com",
+      "created": 1595297036000,
+      "updated": 1595297036000,
+      "sex": 1,
+      "address": "上海",
+      "status": 1
+    },
+    {
+      "id": 2275,
+      "username": "l110120",
+      "password": "",
+      "phone": 123456,
+      "email": "abc@qq.com",
+      "created": 1595256319000,
+      "updated": 1595256319000,
+      "sex": 1,
+      "address": "上海",
+      "status": 1
+    },
+    {
+      "id": 2274,
+      "username": "aaa1231",
+      "password": "",
+      "phone": 123456,
+      "email": "abc@qq.com",
+      "created": 1595256288000,
+      "updated": 1595256288000,
+      "sex": 1,
+      "address": "上海",
+      "status": 1
+    },
+    {
+      "id": 2273,
+      "username": "阿",
+      "password": "",
+      "phone": 123456,
+      "email": "abc@qq.com",
+      "created": 1595256264000,
+      "updated": 1595256264000,
+      "sex": 1,
+      "address": "上海",
+      "status": 1
+    },
+    {
+      "id": 2272,
+      "username": "a646698961",
+      "password": "",
+      "phone": 123456,
+      "email": "abc@qq.com",
+      "created": 1595244324000,
+      "updated": 1595244324000,
+      "sex": 1,
+      "address": "上海",
+      "status": 1
+    },
+    {
+      "id": 2271,
+      "username": "barton",
+      "password": "",
+      "phone": 123456,
+      "email": "abc@qq.com",
+      "created": 1595240107000,
+      "updated": 1595240107000,
+      "sex": 1,
+      "address": "上海",
+      "status": 1
+    },
+    {
+      "id": 2270,
+      "username": "ILYPT",
+      "password": "",
+      "phone": 123456,
+      "email": "abc@qq.com",
+      "created": 1595149773000,
+      "updated": 1595149773000,
+      "sex": 1,
+      "address": "上海",
+      "status": 1
+    },
+    {
+      "id": 2269,
+      "username": "kkk123",
+      "password": "",
+      "phone": 123456,
+      "email": "abc@qq.com",
+      "created": 1595056310000,
+      "updated": 1595056310000,
+      "sex": 1,
+      "address": "上海",
+      "status": 1
+    }
+  ]
+}

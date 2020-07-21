@@ -23,6 +23,7 @@
         <module>oauth2</module>
         <module>oauth2-common</module>
         <module>oauth2-client</module>
+        <module>manager-web</module>
     </modules>
 
 
