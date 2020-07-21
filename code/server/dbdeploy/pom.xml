@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -12,9 +11,9 @@
     <artifactId>dbdeploy</artifactId>
 
     <properties>
-        <db.url>jdbc:mysql://localhost:3306/gte?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</db.url>
-        <db.user>root</db.user>
-        <db.password>root</db.password>
+        <db.url>jdbc:mysql://www.yitiankeji.com:3306/gte?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</db.url>
+        <db.user>gte</db.user>
+        <db.password>gte</db.password>
     </properties>
 
     <build>
