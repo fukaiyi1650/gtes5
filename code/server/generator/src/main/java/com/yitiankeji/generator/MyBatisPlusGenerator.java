@@ -104,7 +104,7 @@ public class MyBatisPlusGenerator implements ApplicationRunner {
         // packageConfig.setServiceImpl("com.yitiankeji.service.impl");
         // packageConfig.setXml("resources.mapper");
         // 调整 xml 生成目录演示
-        List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
+        List<FileOutConfig> focList = new ArrayList<>();
         focList.add(new FileOutConfig("/templates/mapper.xml.ftl") {
             @Override
             public String outputFile(TableInfo tableInfo) {
@@ -156,7 +156,7 @@ public class MyBatisPlusGenerator implements ApplicationRunner {
         InjectionConfig cfg = new InjectionConfig() {
             @Override
             public void initMap() {
-                Map<String, Object> map = new HashMap<String, Object>();
+                Map<String, Object> map = new HashMap<>();
                 map.put("basePackage", config.getBasepackage());
                 map.put("module", config.getModule());
                 this.setMap(map);

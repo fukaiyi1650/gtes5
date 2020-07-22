@@ -28,8 +28,7 @@ public enum ResultCode {
     PARAM_PARAMETER_ERROR(501, "Parameter error"),
 
     //参数为空
-    PARAM_PARAMETER_IS_NULL(502, "Parameter is null"),
-    ;
+    PARAM_PARAMETER_IS_NULL(502, "Parameter is null");
 
     private int code;
 
@@ -47,19 +46,11 @@ public enum ResultCode {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
     public String getMessage() {
         return message;
     }
 
     public String getMessage(String message) {
         return String.format(this.message, message == null ? "" : message);
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }

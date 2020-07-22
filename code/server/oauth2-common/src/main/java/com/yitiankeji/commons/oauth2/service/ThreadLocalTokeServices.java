@@ -13,7 +13,7 @@ public class ThreadLocalTokeServices extends DefaultTokenServices {
         }
         boolean result = super.revokeToken(tokenValue);
         if (result) {
-            SESSION_THREAD_LOCAL.set(null);
+            SESSION_THREAD_LOCAL.remove();
         }
         return result;
     }

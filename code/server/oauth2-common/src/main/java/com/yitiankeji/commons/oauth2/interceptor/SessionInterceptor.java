@@ -52,7 +52,7 @@ public class SessionInterceptor implements HandlerInterceptor {
         Session session = SESSION_THREAD_LOCAL.get();
         if (session != null) {
             session.storeToRedis();
-            SESSION_THREAD_LOCAL.set(null);
+            SESSION_THREAD_LOCAL.remove();
         }
     }
 }

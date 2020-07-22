@@ -49,6 +49,25 @@
                 <spring.datasource.password>test</spring.datasource.password>
             </properties>
         </profile>
+        <profile>
+            <id>sonar</id>
+            <properties>
+                <sonar.branch.name>master</sonar.branch.name>
+                <sonar.host.username>admin</sonar.host.username>
+                <sonar.host.password>admin</sonar.host.password>
+                <sonar.host.url>http://www.yitiankeji.com:9000/</sonar.host.url>
+                <sonar.projectName>${project.artifactId}</sonar.projectName>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonarsource.scanner.maven</groupId>
+                        <artifactId>sonar-maven-plugin</artifactId>
+                        <version>3.1.1</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 
     <dependencies>

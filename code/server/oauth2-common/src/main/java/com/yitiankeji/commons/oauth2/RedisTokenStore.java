@@ -179,7 +179,7 @@ public class RedisTokenStore implements TokenStore {
                     ExpiringOAuth2RefreshToken expiringRefreshToken = (ExpiringOAuth2RefreshToken) refreshToken;
                     Date expiration = expiringRefreshToken.getExpiration();
                     if (expiration != null) {
-                        int seconds = Long.valueOf((expiration.getTime() - System.currentTimeMillis()) / 1000L).intValue();
+                        long seconds = (expiration.getTime() - System.currentTimeMillis()) / 1000L;
                         conn.expire(refreshToAccessKey, seconds);
                         conn.expire(accessToRefreshKey, seconds);
                     }
@@ -267,7 +267,7 @@ public class RedisTokenStore implements TokenStore {
                 ExpiringOAuth2RefreshToken expiringRefreshToken = (ExpiringOAuth2RefreshToken) refreshToken;
                 Date expiration = expiringRefreshToken.getExpiration();
                 if (expiration != null) {
-                    int seconds = Long.valueOf((expiration.getTime() - System.currentTimeMillis()) / 1000L).intValue();
+                    long seconds = (expiration.getTime() - System.currentTimeMillis()) / 1000L;
                     conn.expire(refreshKey, seconds);
                     conn.expire(refreshAuthKey, seconds);
                 }
@@ -330,9 +330,6 @@ public class RedisTokenStore implements TokenStore {
             results = conn.closePipeline();
         } finally {
             conn.close();
-        }
-        if (results == null) {
-            return;
         }
         byte[] bytes = (byte[]) results.get(0);
         String accessToken = deserializeString(bytes);

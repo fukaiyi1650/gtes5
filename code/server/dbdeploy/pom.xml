@@ -25,7 +25,6 @@
                 <version>3.0M3</version>
                 <configuration>
                     <scriptdirectory>./sql</scriptdirectory>
-                    <!-- <name>${dbchangefile.name}</name>-->
                     <encoding>UTF-8</encoding>
                     <lineEnding>lf</lineEnding>
                     <outputfile>./result/apply.sql</outputfile>
@@ -36,7 +35,6 @@
                     <password>${db.password}</password>
                     <dbms>mysql</dbms>
                     <delimiter>;</delimiter>
-                    <!-- <delimiterType>row</delimiterType>-->
                 </configuration>
                 <dependencies>
                     <dependency>
