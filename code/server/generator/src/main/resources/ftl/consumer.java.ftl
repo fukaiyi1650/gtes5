@@ -10,10 +10,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -27,39 +25,67 @@ import java.util.List;
  * @author ${author}
  * @since ${date}
 */
-@RestController
+@Controller
 public class ${entity}Controller {
 
     @Autowired
     private ${entity}Api ${table.entityPath}Api;
 
-    @RequestMapping("/${table.entityPath}/page")
-    public Page<${entity}> page(${entity}Query query) {
+    @GetMapping("/${table.entityPath}/list")
+    public String list() {
+        return "/${table.entityPath}/list";
+    }
+
+    @GetMapping("/${table.entityPath}/add")
+    public String add() {
+        return "/${table.entityPath}/add";
+    }
+
+    @GetMapping("/${table.entityPath}/edit")
+    public String edit() {
+        return "/${table.entityPath}/edit";
+    }
+
+    @ResponseBody
+    @PostMapping("/${table.entityPath}/page")
+    public Page<${entity}> page(@RequestBody ${entity}Query query) {
         return ${table.entityPath}Api.page(query);
     }
 
-    @RequestMapping("/${table.entityPath}/list")
-    public List<${entity}> list() {
-        return ${table.entityPath}Api.list();
-    }
-
-    @RequestMapping("/${table.entityPath}/findById")
+    @ResponseBody
+    @GetMapping("/${table.entityPath}/findById")
     public ${entity} findById(@RequestParam Integer id) {
         return ${table.entityPath}Api.findById(id);
     }
 
-    @RequestMapping("/${table.entityPath}/save")
+    @ResponseBody
+    @PostMapping("/${table.entityPath}/save")
     public ResponseData save(@RequestBody ${entity} ${table.entityPath}) {
         return ${table.entityPath}Api.save(${table.entityPath});
     }
 
-    @RequestMapping("/${table.entityPath}/update")
+    @ResponseBody
+    @PostMapping("/${table.entityPath}/update")
     public ResponseData update(@RequestBody ${entity} ${table.entityPath}) {
         return ${table.entityPath}Api.update(${table.entityPath});
     }
 
-    @RequestMapping("/${table.entityPath}/delete")
+    @ResponseBody
+    @GetMapping("/${table.entityPath}/delete")
     public ResponseData delete(@RequestParam List<Integer> id) {
     return ${table.entityPath}Api.delete(id);
+    }
+
+    @ResponseBody
+    @GetMapping("/${table.entityPath}/export")
+    public void export(${entity}Query query, HttpServletResponse response) throws IOException {
+        ResponseEntity responseEntity = ${table.entityPath}Api.export(10);
+        response.setContentType("application/vnd.ms-excel;charset=utf-8");
+
+        HttpHeaders headers = responseEntity.getHeaders();
+        response.addHeader("Content-Disposition", headers.getFirst("content-disposition"));
+
+        byte[] body = (byte[]) responseEntity.getBody();
+        response.getOutputStream().write(body);
     }
 }

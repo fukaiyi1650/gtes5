@@ -9,8 +9,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -23,24 +24,27 @@ import java.util.List;
  * @author ${author}
  * @since ${date}
 */
-@FeignClient("${table.entityPath}-service")
+@FeignClient("${cfg.module}-service")
 public interface ${entity}Api {
 
-    @RequestMapping("/${table.entityPath}/page")
+    @PostMapping("/${table.entityPath}/page")
     public Page<${entity}> page(@RequestBody ${entity}Query query);
 
-    @RequestMapping("/${table.entityPath}/list")
-    public List<${entity}> list();
+    @PostMapping("/${table.entityPath}/list")
+    public List<${entity}> list(@RequestBody ${entity}Query query);
 
-    @RequestMapping("/${table.entityPath}/findById")
+    @GetMapping("/${table.entityPath}/findById")
     public ${entity} findById(@RequestParam Integer id);
 
-    @RequestMapping("/${table.entityPath}/save")
+    @PostMapping("/${table.entityPath}/save")
     public ResponseData save(@RequestBody ${entity} ${table.entityPath});
 
-    @RequestMapping("/${table.entityPath}/update")
+    @PostMapping("/${table.entityPath}/update")
     public ResponseData update(@RequestBody ${entity} ${table.entityPath});
 
-    @RequestMapping("/${table.entityPath}/delete")
+    @GetMapping("/${table.entityPath}/delete")
     public ResponseData delete(@RequestParam List<Integer> id);
+
+    @GetMapping(value = "/${table.entityPath}/export", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    ResponseEntity<byte[]> export(@RequestParam Integer id);
 }

@@ -132,27 +132,41 @@ public class MyBatisPlusGenerator implements ApplicationRunner {
         focList.add(new FileOutConfig("/ftl/query.java.ftl") {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                return projectPath + "/generator/consumer/" + config.getBasepackage().replace('.', '/') + "/query/" + tableInfo.getEntityName() + "Query.java";
+                return projectPath + "/generator/model/" + config.getBasepackage().replace('.', '/') + "/query/" + tableInfo.getEntityName() + "Query.java";
             }
         });
         focList.add(new FileOutConfig("/ftl/entity.java.ftl") {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                return projectPath + "/generator/consumer/" + config.getBasepackage().replace('.', '/') + "/entity/" + tableInfo.getEntityName() + ".java";
+                return projectPath + "/generator/model/" + config.getBasepackage().replace('.', '/') + "/entity/" + tableInfo.getEntityName() + ".java";
             }
         });
-        focList.add(new FileOutConfig("/ftl/query.java.ftl") {
+
+        focList.add(new FileOutConfig("/ftl/page/list.ftl") {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                return projectPath + "/generator/provider/" + config.getBasepackage().replace('.', '/') + "/query/" + tableInfo.getEntityName() + "Query.java";
+                return projectPath + "/generator/page/" + tableInfo.getEntityPath() + "/" + "list.ftl";
             }
         });
-        focList.add(new FileOutConfig("/ftl/entity.java.ftl") {
+        focList.add(new FileOutConfig("/ftl/page/add.ftl") {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                return projectPath + "/generator/provider/" + config.getBasepackage().replace('.', '/') + "/entity/" + tableInfo.getEntityName() + ".java";
+                return projectPath + "/generator/page/" + tableInfo.getEntityPath() + "/" + "add.ftl";
             }
         });
+        focList.add(new FileOutConfig("/ftl/page/edit.ftl") {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                return projectPath + "/generator/page/" + tableInfo.getEntityPath() + "/" + "edit.ftl";
+            }
+        });
+        focList.add(new FileOutConfig("/ftl/js/entity.js.ftl") {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                return projectPath + "/generator/js/" + tableInfo.getEntityPath() + ".js";
+            }
+        });
+
         InjectionConfig cfg = new InjectionConfig() {
             @Override
             public void initMap() {

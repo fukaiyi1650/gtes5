@@ -3,6 +3,15 @@ package ${package.Entity};
 <#list table.importPackages as pkg>
 import ${pkg};
 </#list>
+import com.alibaba.excel.annotation.ExcelIgnore;
+import com.alibaba.excel.annotation.ExcelProperty;
+import com.alibaba.excel.annotation.write.style.ColumnWidth;
+import com.alibaba.excel.annotation.write.style.ContentRowHeight;
+import com.alibaba.excel.annotation.write.style.HeadRowHeight;
+import com.alibaba.excel.converters.integer.IntegerStringConverter;
+import com.alibaba.excel.metadata.CellData;
+import com.alibaba.excel.metadata.GlobalConfiguration;
+import com.alibaba.excel.metadata.property.ExcelContentProperty;
 <#if swagger2>
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -21,6 +30,9 @@ import lombok.experimental.Accessors;
  * @author ${author}
  * @since ${date}
  */
+@ContentRowHeight(20)
+@HeadRowHeight(20)
+@ColumnWidth(20)
 <#if entityLombokModel>
 @Data
     <#if superEntityClass??>

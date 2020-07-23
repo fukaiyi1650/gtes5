@@ -18,18 +18,6 @@
     </properties>
 
     <dependencies>
-        <!-- Swagger API文档生成工具 -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-        <!-- Swagger API文档可视化界面 -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.7.0</version>
-        </dependency>
         <!-- MySQL驱动 -->
         <dependency>
             <groupId>mysql</groupId>

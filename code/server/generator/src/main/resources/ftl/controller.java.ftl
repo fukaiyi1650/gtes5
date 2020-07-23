@@ -1,6 +1,9 @@
 package ${package.Controller};
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+
+import com.alibaba.excel.EasyExcel;
+import ${cfg.basePackage}.query.${entity}Query;
 import ${cfg.basePackage}.response.ResponseData;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -41,38 +44,48 @@ public class ${table.controllerName} {
     @Autowired
     private ${entity}Service ${table.entityPath}Service;
 
-    @RequestMapping("/${table.entityPath}/page")
+    @PostMapping("/${table.entityPath}/page")
     public IPage<${entity}> page(@RequestBody ${entity}Query query){
         Page<${entity}> page= new Page<${entity}>(query.getPage(), query.getPageSize());
         return ${table.entityPath}Service.page(page);
     }
 
-    @RequestMapping("/${table.entityPath}/list")
-    public List<${entity}> list(){
+    @PostMapping("/${table.entityPath}/list")
+    public List<${entity}> list(@RequestBody ${entity}Query query){
         return ${table.entityPath}Service.list();
     }
 
-    @RequestMapping("/${table.entityPath}/findById")
+    @GetMapping("/${table.entityPath}/findById")
     public ${entity} findById(@RequestParam Integer id) {
         return ${table.entityPath}Service.getById(id);
     }
 
-    @RequestMapping("/${table.entityPath}/save")
+    @PostMapping("/${table.entityPath}/save")
     public ResponseData save(@RequestBody ${entity} ${table.entityPath}) {
         ${table.entityPath}Service.save(${table.entityPath});
         return ResponseData.success(${table.entityPath});
     }
 
-    @RequestMapping("/${table.entityPath}/update")
+    @PostMapping("/${table.entityPath}/update")
     public ResponseData update(@RequestBody ${entity} ${table.entityPath}) {
         ${table.entityPath}Service.updateById(${table.entityPath});
         return ResponseData.success(${table.entityPath});
     }
 
-    @RequestMapping("/${table.entityPath}/delete")
+    @GetMapping("/${table.entityPath}/delete")
     public ResponseData delete(@RequestParam List<Integer> id) {
         ${table.entityPath}Service.removeByIds(id);
         return ResponseData.success(id);
+    }
+
+    @ResponseBody
+    @GetMapping("/${table.entityPath}/export")
+    public void export(${entity}Query query, HttpServletResponse response) throws IOException {
+        response.setContentType("application/vnd.ms-excel");
+        response.setCharacterEncoding("utf-8");
+        String fileName = URLEncoder.encode("${table.comment!}", "UTF-8");
+        response.setHeader("Content-disposition", "attachment;filename=" + fileName + ".xlsx");
+        EasyExcel.write(response.getOutputStream(), ${entity}.class).sheet("${table.comment!}").doWrite(list(query));
     }
 }
 </#if>

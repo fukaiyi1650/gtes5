@@ -27,6 +27,8 @@
         <module>oauth2-client</module>
         <module>oauth2-common</module>
         <module>dbdeploy</module>
+        <module>manager</module>
+        <module>manager-model</module>
     </modules>
 
     <properties>
@@ -71,6 +73,21 @@
     </profiles>
 
     <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>2.1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
