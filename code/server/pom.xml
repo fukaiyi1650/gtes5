@@ -29,6 +29,7 @@
         <module>dbdeploy</module>
         <module>manager</module>
         <module>manager-model</module>
+        <module>model</module>
     </modules>
 
     <properties>
@@ -176,6 +177,8 @@
     </dependencyManagement>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>dbdeploy</artifactId>
+    <name>数据库版本控制</name>
 
     <properties>
         <db.url>jdbc:mysql://www.yitiankeji.com:3306/gte?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</db.url>

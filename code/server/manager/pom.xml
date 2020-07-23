@@ -9,6 +9,7 @@
     </parent>
 
     <artifactId>manager</artifactId>
+    <name>后台管理</name>
 
     <dependencies>
 <!--        <dependency>-->
@@ -19,7 +20,7 @@
         <dependency>
             <groupId>com.yitiankeji</groupId>
             <artifactId>manager-model</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
         <!-- Nacos发现注册中心客户端 -->
         <dependency>

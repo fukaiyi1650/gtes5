@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>oauth2-client</artifactId>
+    <name>单点登录测试客户端</name>
 
     <properties>
         <java.version>1.8</java.version>
@@ -21,7 +22,7 @@
         <dependency>
             <groupId>com.yitiankeji</groupId>
             <artifactId>oauth2-common</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
         <!-- Nacos发现注册中心客户端 -->
         <dependency>

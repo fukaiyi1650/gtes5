@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>oauth2-common</artifactId>
+    <name>单点登录工具包</name>
 
     <dependencies>
         <dependency>
