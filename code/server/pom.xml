@@ -10,12 +10,12 @@
     </parent>
 
     <groupId>com.yitiankeji</groupId>
-    <artifactId>gte</artifactId>
+    <artifactId>jsj</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <name>逛吃外卖</name>
-    <description>平价外卖平台</description>
+    <name>jsj</name>
+    <description>金三角平台</description>
 
     <modules>
         <module>customer</module>
@@ -37,18 +37,18 @@
         <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
 
-        <spring.datasource.url>jdbc:mysql://localhost:3306/gte?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</spring.datasource.url>
-        <spring.datasource.username>root</spring.datasource.username>
-        <spring.datasource.password>root</spring.datasource.password>
+        <spring.datasource.url>jdbc:mysql://localhost:3306/jsj?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</spring.datasource.url>
+        <spring.datasource.username>jsj</spring.datasource.username>
+        <spring.datasource.password>jsj</spring.datasource.password>
     </properties>
 
     <profiles>
         <profile>
             <id>test</id>
             <properties>
-                <spring.datasource.url>jdbc:mysql://localhost:3306/gte?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</spring.datasource.url>
-                <spring.datasource.username>test</spring.datasource.username>
-                <spring.datasource.password>test</spring.datasource.password>
+                <spring.datasource.url>jdbc:mysql://localhost:3306/jsj?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</spring.datasource.url>
+                <spring.datasource.username>jsj</spring.datasource.username>
+                <spring.datasource.password>jsj</spring.datasource.password>
             </properties>
         </profile>
         <profile>
