@@ -25,7 +25,6 @@ import java.util.List;
  * </p>
  *
  * @author ${author}
- * @since ${date}
  */
 <#if restControllerStyle>
 @RestController
@@ -72,7 +71,7 @@ public class ${table.controllerName} {
         return ResponseData.success(${table.entityPath});
     }
 
-    @GetMapping("/${table.entityPath}/delete")
+    @PostMapping("/${table.entityPath}/delete")
     public ResponseData delete(@RequestParam List<Integer> ids) {
         ${table.entityPath}Service.removeByIds(ids);
         return ResponseData.success(ids);

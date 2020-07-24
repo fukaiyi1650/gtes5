@@ -3,6 +3,7 @@ package com.yitiankeji.controller;
 import com.yitiankeji.api.RoleApi;
 import com.yitiankeji.entity.Role;
 import com.yitiankeji.query.RoleQuery;
+import com.yitiankeji.response.Pagation;
 import com.yitiankeji.response.ResponseData;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -23,7 +24,6 @@ import java.util.List;
  * </p>
  *
  * @author yitiankeji
- * @since 2020-07-23
 */
 @Controller
 public class RoleController {
@@ -48,8 +48,11 @@ public class RoleController {
 
     @ResponseBody
     @PostMapping("/role/page")
-    public Page<Role> page(@RequestBody RoleQuery query) {
-        return roleApi.page(query);
+    public Pagation page(RoleQuery query) {
+        Page<Role> page = roleApi.page(query);
+        Pagation pagation = new Pagation(page);
+        pagation.setsEcho(query.getSEcho());
+        return pagation;
     }
 
     @ResponseBody
@@ -71,7 +74,7 @@ public class RoleController {
     }
 
     @ResponseBody
-    @GetMapping("/role/delete")
+    @PostMapping("/role/delete")
     public ResponseData delete(@RequestParam List<Integer> ids) {
     return roleApi.delete(ids);
     }

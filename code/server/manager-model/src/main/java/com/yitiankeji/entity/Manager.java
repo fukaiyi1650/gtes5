@@ -1,16 +1,24 @@
 package com.yitiankeji.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.IdType;
+import java.util.Date;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
+import com.alibaba.excel.annotation.ExcelIgnore;
+import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;
 import com.alibaba.excel.annotation.write.style.ContentRowHeight;
 import com.alibaba.excel.annotation.write.style.HeadRowHeight;
-import com.baomidou.mybatisplus.annotation.*;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.alibaba.excel.converters.integer.IntegerStringConverter;
+import com.alibaba.excel.metadata.CellData;
+import com.alibaba.excel.metadata.GlobalConfiguration;
+import com.alibaba.excel.metadata.property.ExcelContentProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <p>
@@ -18,7 +26,7 @@ import java.util.Date;
  * </p>
  *
  * @author yitiankeji
- * @since 2020-07-23
+ * @since 2020-07-24
  */
 @ContentRowHeight(20)
 @HeadRowHeight(20)
@@ -33,14 +41,13 @@ public class Manager implements Serializable {
 
     /** 管理员ID */
     @TableId(value = "manager_id", type = IdType.AUTO)
-    private Integer managerId;
+    private Integer id;
 
     /** 账号 */
     @TableField("account")
     private String account;
 
     /** 密码 */
-    @JsonIgnore
     @TableField("password")
     private String password;
 

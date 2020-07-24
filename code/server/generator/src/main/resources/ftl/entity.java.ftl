@@ -28,7 +28,6 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author ${author}
- * @since ${date}
  */
 @ContentRowHeight(20)
 @HeadRowHeight(20)
@@ -100,7 +99,11 @@ public class ${entity} implements Serializable {
     <#if (logicDeleteFieldName!"") == field.name>
     @TableLogic
     </#if>
+    <#if field.keyFlag>
+    private ${field.propertyType} id;
+    <#else>
     private ${field.propertyType} ${field.propertyName};
+    </#if>
 </#list>
 <#------------  END 字段循环遍历  ---------->
 

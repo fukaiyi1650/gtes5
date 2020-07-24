@@ -7,7 +7,7 @@ $.fn.myDataTable = function(settings) {
         "bVisible" : true, //此列不显示
         "bSortable": false, //是否排序
         "mRender" : function(data, type, row, meta) { // 返回自定义内容
-            return "<input name=\"checkbox\" value=\""+row.managerId+"\" type=\"checkbox\">";
+            return "<input name=\"checkbox\" value=\""+row.id+"\" type=\"checkbox\">";
         }
     });
     for (var i = 0; i < settings.columns.length; i++) {

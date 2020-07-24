@@ -6,10 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class ${entity}Query {
-
-    private Integer pageSize = 10;
-    private Integer page = 1;
+public class ${entity}Query extends BaseQuery {
 
     <#list table.fields as field>
     <#if swagger2>

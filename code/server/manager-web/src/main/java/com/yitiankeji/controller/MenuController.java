@@ -3,6 +3,7 @@ package com.yitiankeji.controller;
 import com.yitiankeji.api.MenuApi;
 import com.yitiankeji.entity.Menu;
 import com.yitiankeji.query.MenuQuery;
+import com.yitiankeji.response.Pagation;
 import com.yitiankeji.response.ResponseData;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -23,7 +24,6 @@ import java.util.List;
  * </p>
  *
  * @author yitiankeji
- * @since 2020-07-23
 */
 @Controller
 public class MenuController {
@@ -48,8 +48,11 @@ public class MenuController {
 
     @ResponseBody
     @PostMapping("/menu/page")
-    public Page<Menu> page(@RequestBody MenuQuery query) {
-        return menuApi.page(query);
+    public Pagation page(MenuQuery query) {
+        Page<Menu> page = menuApi.page(query);
+        Pagation pagation = new Pagation(page);
+        pagation.setsEcho(query.getSEcho());
+        return pagation;
     }
 
     @ResponseBody
@@ -71,7 +74,7 @@ public class MenuController {
     }
 
     @ResponseBody
-    @GetMapping("/menu/delete")
+    @PostMapping("/menu/delete")
     public ResponseData delete(@RequestParam List<Integer> ids) {
     return menuApi.delete(ids);
     }

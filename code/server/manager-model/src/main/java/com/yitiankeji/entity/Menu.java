@@ -1,17 +1,22 @@
 package com.yitiankeji.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
+import com.alibaba.excel.annotation.ExcelIgnore;
+import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;
 import com.alibaba.excel.annotation.write.style.ContentRowHeight;
 import com.alibaba.excel.annotation.write.style.HeadRowHeight;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.alibaba.excel.converters.integer.IntegerStringConverter;
+import com.alibaba.excel.metadata.CellData;
+import com.alibaba.excel.metadata.GlobalConfiguration;
+import com.alibaba.excel.metadata.property.ExcelContentProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
 
 /**
  * <p>
@@ -19,7 +24,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author yitiankeji
- * @since 2020-07-23
+ * @since 2020-07-24
  */
 @ContentRowHeight(20)
 @HeadRowHeight(20)
@@ -34,7 +39,7 @@ public class Menu implements Serializable {
 
     /** 菜单ID */
     @TableId(value = "menu_id", type = IdType.AUTO)
-    private Integer menuId;
+    private Integer id;
 
     /** 父菜单ID */
     @TableField("parent_id")

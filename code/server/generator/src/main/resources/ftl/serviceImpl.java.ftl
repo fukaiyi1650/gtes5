@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
  * </p>
  *
  * @author ${author}
- * @since ${date}
  */
 @Service
 @Transactional

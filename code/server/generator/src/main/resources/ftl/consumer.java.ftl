@@ -3,6 +3,7 @@ package ${cfg.basePackage}.controller;
 import ${cfg.basePackage}.api.${entity}Api;
 import ${package.Entity}.${entity};
 import ${cfg.basePackage}.query.${entity}Query;
+import ${cfg.basePackage}.response.Pagation;
 import ${cfg.basePackage}.response.ResponseData;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -23,7 +24,6 @@ import java.util.List;
  * </p>
  *
  * @author ${author}
- * @since ${date}
 */
 @Controller
 public class ${entity}Controller {
@@ -48,8 +48,8 @@ public class ${entity}Controller {
 
     @ResponseBody
     @PostMapping("/${table.entityPath}/page")
-    public Pagation page(ManagerQuery query) {
-    Page<${entity}> page = ${table.entityPath}Api.page(query);
+    public Pagation page(${entity}Query query) {
+        Page<${entity}> page = ${table.entityPath}Api.page(query);
         Pagation pagation = new Pagation(page);
         pagation.setsEcho(query.getSEcho());
         return pagation;
@@ -74,7 +74,7 @@ public class ${entity}Controller {
     }
 
     @ResponseBody
-    @GetMapping("/${table.entityPath}/delete")
+    @PostMapping("/${table.entityPath}/delete")
     public ResponseData delete(@RequestParam List<Integer> ids) {
     return ${table.entityPath}Api.delete(ids);
     }

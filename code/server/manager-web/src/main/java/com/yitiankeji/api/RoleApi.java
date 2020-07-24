@@ -22,7 +22,7 @@ import java.util.List;
  * </p>
  *
  * @author yitiankeji
- * @since 2020-07-23
+ * @since 2020-07-24
 */
 @FeignClient("manager-service")
 public interface RoleApi {

@@ -22,7 +22,6 @@ import java.util.List;
  * </p>
  *
  * @author ${author}
- * @since ${date}
 */
 @FeignClient("${cfg.module}-service")
 public interface ${entity}Api {
@@ -45,6 +44,6 @@ public interface ${entity}Api {
     @GetMapping("/${table.entityPath}/delete")
     public ResponseData delete(@RequestParam List<Integer> ids);
 
-    @GetMapping(value = "/${table.entityPath}/export", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    @PostMapping(value = "/${table.entityPath}/export", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     ResponseEntity<byte[]> export(@RequestParam Integer id);
 }
