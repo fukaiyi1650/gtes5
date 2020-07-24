@@ -12,9 +12,9 @@
 		</#list>
 		<button type="submit" class="btn btn-success radius"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
 	</div>
-	&lt;@g.operate "/${table.entityPath}/add.html" 90 />
+	&lt;@g.operate "/${table.entityPath}/add.html" />
 	<div class="mt-20">
-	<table class="table table-border table-bordered table-hover table-bg table-sort"></table>
+	<table class="table table-border table-bordered table-hover table-bg table-sort" width="100%"></table>
 	</div>
 </div>
 

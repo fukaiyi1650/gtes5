@@ -10,51 +10,30 @@ import java.util.List;
 public class Pagation {
 
     private long draw = System.currentTimeMillis();
-
-    private Integer sEcho;
-    private Integer iDisplayStart;
-    private Integer iDisplayLength;
-
+    private long sEcho;
     private long iTotalRecords;
     private long iTotalDisplayRecords;
+
     private List<?> aaData = new ArrayList<>();
 
-    public Pagation page(com.baomidou.mybatisplus.extension.plugins.pagination.Page page) {
+    public Pagation(Page<?> page) {
+        page(page);
+    }
+
+    public Pagation page(com.baomidou.mybatisplus.extension.plugins.pagination.Page<?> page) {
+        setsEcho(page.getCurrent());
         setiTotalRecords(page.getTotal());
         setiTotalDisplayRecords(page.getTotal());
         setAaData(page.getRecords());
         return this;
     }
 
-    public <T> com.baomidou.mybatisplus.extension.plugins.pagination.Page toPage() {
-        Page<T> page = new Page<>();
-        page.setCurrent(iDisplayStart / iDisplayLength + 1);
-        page.setSize(getiDisplayLength());
-        return page;
-    }
-
-    public Integer getsEcho() {
+    public long getsEcho() {
         return sEcho;
     }
 
-    public void setsEcho(Integer sEcho) {
+    public void setsEcho(long sEcho) {
         this.sEcho = sEcho;
-    }
-
-    public Integer getiDisplayStart() {
-        return iDisplayStart;
-    }
-
-    public void setiDisplayStart(Integer iDisplayStart) {
-        this.iDisplayStart = iDisplayStart;
-    }
-
-    public Integer getiDisplayLength() {
-        return iDisplayLength;
-    }
-
-    public void setiDisplayLength(Integer iDisplayLength) {
-        this.iDisplayLength = iDisplayLength;
     }
 
     public long getiTotalRecords() {

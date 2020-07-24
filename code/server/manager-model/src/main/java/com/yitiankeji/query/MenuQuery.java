@@ -4,10 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class MenuQuery {
-
-    private Integer pageSize = 10;
-    private Integer page = 1;
+public class MenuQuery extends BaseQuery {
 
     @ApiModelProperty(value = "菜单ID", notes = "菜单ID")
     private String menuId;

@@ -72,8 +72,8 @@ public class RoleController {
 
     @ResponseBody
     @GetMapping("/role/delete")
-    public ResponseData delete(@RequestParam List<Integer> id) {
-    return roleApi.delete(id);
+    public ResponseData delete(@RequestParam List<Integer> ids) {
+    return roleApi.delete(ids);
     }
 
     @ResponseBody

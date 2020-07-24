@@ -4,10 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class RoleQuery {
-
-    private Integer pageSize = 10;
-    private Integer page = 1;
+public class RoleQuery extends BaseQuery {
 
     @ApiModelProperty(value = "角色ID", notes = "角色ID")
     private String roleId;

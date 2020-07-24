@@ -35,7 +35,7 @@ public class MenuController {
 
     @RequestMapping("/menu/page")
     public IPage<Menu> page(@RequestBody MenuQuery query){
-        Page<Menu> page= new Page<Menu>(query.getPage(), query.getPageSize());
+        Page<Menu> page= new Page<Menu>(query.getSEcho(), query.getIDisplayLength());
         return menuService.page(page);
     }
 
@@ -62,9 +62,9 @@ public class MenuController {
     }
 
     @RequestMapping("/menu/delete")
-    public ResponseData delete(@RequestParam List<Integer> id) {
-        menuService.removeByIds(id);
-        return ResponseData.success(id);
+    public ResponseData delete(@RequestParam List<Integer> ids) {
+        menuService.removeByIds(ids);
+        return ResponseData.success(ids);
     }
 
     @ResponseBody

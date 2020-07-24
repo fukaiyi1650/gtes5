@@ -10,7 +10,7 @@
 		<@g.text "remark" "输入备注" />
 		<button type="submit" class="btn btn-success radius"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
 	</div>
-	<@g.operate "/role/add.html" 90 />
+	<@g.operate "/role/add.html" />
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort"></table>
 	</div>

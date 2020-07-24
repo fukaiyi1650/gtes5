@@ -35,7 +35,7 @@ public class RoleController {
 
     @RequestMapping("/role/page")
     public IPage<Role> page(@RequestBody RoleQuery query){
-        Page<Role> page= new Page<Role>(query.getPage(), query.getPageSize());
+        Page<Role> page= new Page<Role>(query.getSEcho(), query.getIDisplayLength());
         return roleService.page(page);
     }
 
@@ -62,9 +62,9 @@ public class RoleController {
     }
 
     @RequestMapping("/role/delete")
-    public ResponseData delete(@RequestParam List<Integer> id) {
-        roleService.removeByIds(id);
-        return ResponseData.success(id);
+    public ResponseData delete(@RequestParam List<Integer> ids) {
+        roleService.removeByIds(ids);
+        return ResponseData.success(ids);
     }
 
     @ResponseBody

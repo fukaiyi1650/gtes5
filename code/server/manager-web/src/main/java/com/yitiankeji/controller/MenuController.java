@@ -72,8 +72,8 @@ public class MenuController {
 
     @ResponseBody
     @GetMapping("/menu/delete")
-    public ResponseData delete(@RequestParam List<Integer> id) {
-    return menuApi.delete(id);
+    public ResponseData delete(@RequestParam List<Integer> ids) {
+    return menuApi.delete(ids);
     }
 
     @ResponseBody

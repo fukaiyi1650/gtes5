@@ -43,7 +43,7 @@ public interface MenuApi {
     public ResponseData update(@RequestBody Menu menu);
 
     @GetMapping("/menu/delete")
-    public ResponseData delete(@RequestParam List<Integer> id);
+    public ResponseData delete(@RequestParam List<Integer> ids);
 
     @GetMapping(value = "/menu/export", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     ResponseEntity<byte[]> export(@RequestParam Integer id);

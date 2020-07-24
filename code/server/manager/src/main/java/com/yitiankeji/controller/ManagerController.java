@@ -1,17 +1,14 @@
 package com.yitiankeji.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-
 import com.alibaba.excel.EasyExcel;
-import com.yitiankeji.response.ResponseData;
-
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import com.yitiankeji.entity.Manager;
 import com.yitiankeji.query.ManagerQuery;
+import com.yitiankeji.response.ResponseData;
 import com.yitiankeji.service.ManagerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -34,7 +31,7 @@ public class ManagerController {
 
     @RequestMapping("/manager/page")
     public IPage<Manager> page(@RequestBody ManagerQuery query){
-        Page<Manager> page= new Page<Manager>(query.getPage(), query.getPageSize());
+        Page<Manager> page = new Page<Manager>(query.getIDisplayStart() / query.getIDisplayLength() + 1, query.getIDisplayLength());
         return managerService.page(page);
     }
 
@@ -61,9 +58,9 @@ public class ManagerController {
     }
 
     @RequestMapping("/manager/delete")
-    public ResponseData delete(@RequestParam List<Integer> id) {
-        managerService.removeByIds(id);
-        return ResponseData.success(id);
+    public ResponseData delete(@RequestParam List<Integer> ids) {
+        managerService.removeByIds(ids);
+        return ResponseData.success(ids);
     }
 
     @ResponseBody

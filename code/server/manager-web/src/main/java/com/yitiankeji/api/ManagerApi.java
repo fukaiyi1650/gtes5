@@ -43,7 +43,7 @@ public interface ManagerApi {
     public ResponseData update(@RequestBody Manager manager);
 
     @GetMapping("/manager/delete")
-    public ResponseData delete(@RequestParam List<Integer> id);
+    public ResponseData delete(@RequestParam List<Integer> ids);
 
     @GetMapping(value = "/manager/export", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     ResponseEntity<byte[]> export(@RequestParam Integer id);

@@ -3,6 +3,7 @@ package com.yitiankeji.controller;
 import com.yitiankeji.api.ManagerApi;
 import com.yitiankeji.entity.Manager;
 import com.yitiankeji.query.ManagerQuery;
+import com.yitiankeji.response.Pagation;
 import com.yitiankeji.response.ResponseData;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -48,8 +49,11 @@ public class ManagerController {
 
     @ResponseBody
     @PostMapping("/manager/page")
-    public Page<Manager> page(@RequestBody ManagerQuery query) {
-        return managerApi.page(query);
+    public Pagation page(ManagerQuery query) {
+        Page<Manager> page = managerApi.page(query);
+        Pagation pagation = new Pagation(page);
+        pagation.setsEcho(query.getSEcho());
+        return pagation;
     }
 
     @ResponseBody
@@ -71,9 +75,9 @@ public class ManagerController {
     }
 
     @ResponseBody
-    @GetMapping("/manager/delete")
-    public ResponseData delete(@RequestParam List<Integer> id) {
-    return managerApi.delete(id);
+    @PostMapping("/manager/delete")
+    public ResponseData delete(@RequestParam List<Integer> ids) {
+    return managerApi.delete(ids);
     }
 
     @ResponseBody

@@ -4,10 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class ManagerQuery {
-
-    private Integer pageSize = 10;
-    private Integer page = 1;
+public class ManagerQuery extends BaseQuery {
 
     @ApiModelProperty(value = "管理员ID", notes = "管理员ID")
     private String managerId;

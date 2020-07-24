@@ -32,7 +32,7 @@
     <script type="text/javascript" src="${ctx}/lib/layer/2.4/layer.js"></script>
     <script type="text/javascript" src="${ctx}/static/h-ui/js/H-ui.min.js"></script>
     <script type="text/javascript" src="${ctx}/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
-
+    <script type="text/javascript" src="${ctx}/js/global.js" ></script>
     <#nested />
 </#macro>
 
@@ -52,13 +52,13 @@
     <input type="text" id="${id}" name="${id}" class="input-text" style="width:250px"<#if placeholder??> placeholder="${placeholder}</#if>">
 </#macro>
 
-<#macro operate addUrl count>
+<#macro operate addUrl>
     <div class="cl pd-5 bg-1 bk-gray mt-20">
             <span class="l">
-                <a href="javascript:void(0);" onclick="batchDelete()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+                <a href="javascript:void(0);" onclick="batchDeleteByIds()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
                 <a href="javascript:void(0);" onclick="layer_show('添加用户','${ctx}${addUrl}','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a>
             </span>
-        <span class="r">共有数据：<strong>${count}</strong> 条</span>
+        <span class="r">共有数据：<strong id="totalRecords">0</strong> 条</span>
     </div>
 </#macro>
 

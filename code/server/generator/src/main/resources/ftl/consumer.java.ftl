@@ -48,8 +48,11 @@ public class ${entity}Controller {
 
     @ResponseBody
     @PostMapping("/${table.entityPath}/page")
-    public Page<${entity}> page(@RequestBody ${entity}Query query) {
-        return ${table.entityPath}Api.page(query);
+    public Pagation page(ManagerQuery query) {
+    Page<${entity}> page = ${table.entityPath}Api.page(query);
+        Pagation pagation = new Pagation(page);
+        pagation.setsEcho(query.getSEcho());
+        return pagation;
     }
 
     @ResponseBody
@@ -72,8 +75,8 @@ public class ${entity}Controller {
 
     @ResponseBody
     @GetMapping("/${table.entityPath}/delete")
-    public ResponseData delete(@RequestParam List<Integer> id) {
-    return ${table.entityPath}Api.delete(id);
+    public ResponseData delete(@RequestParam List<Integer> ids) {
+    return ${table.entityPath}Api.delete(ids);
     }
 
     @ResponseBody

@@ -9,9 +9,9 @@
 		<@g.text "query" "输入会员名称、电话、邮箱" />
 		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 	</div>
-	<@g.operate "/member/add.html" 90 />
+	<@g.operate "/member/add.html" />
 	<div class="mt-20">
-	<table class="table table-border table-bordered table-hover table-bg table-sort"></table>
+	<table class="table table-border table-bordered table-hover table-bg table-sort" width="100%"></table>
 	</div>
 </div>
 

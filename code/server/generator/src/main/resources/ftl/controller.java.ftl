@@ -73,9 +73,9 @@ public class ${table.controllerName} {
     }
 
     @GetMapping("/${table.entityPath}/delete")
-    public ResponseData delete(@RequestParam List<Integer> id) {
-        ${table.entityPath}Service.removeByIds(id);
-        return ResponseData.success(id);
+    public ResponseData delete(@RequestParam List<Integer> ids) {
+        ${table.entityPath}Service.removeByIds(ids);
+        return ResponseData.success(ids);
     }
 
     @ResponseBody

@@ -16,9 +16,9 @@
 		<@g.text "remove" "输入删除" />
 		<button type="submit" class="btn btn-success radius"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
 	</div>
-	<@g.operate "/menu/add.html" 90 />
+	<@g.operate "/menu/add.html" />
 	<div class="mt-20">
-	<table class="table table-border table-bordered table-hover table-bg table-sort"></table>
+	<table class="table table-border table-bordered table-hover table-bg table-sort" width="100%"></table>
 	</div>
 </div>
 
