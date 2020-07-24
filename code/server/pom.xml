@@ -10,12 +10,11 @@
     </parent>
 
     <groupId>com.yitiankeji</groupId>
-    <artifactId>jsj</artifactId>
+    <artifactId>gte</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <name>jsj</name>
-    <description>金三角平台</description>
+    <name>逛吃外卖</name>
 
     <modules>
         <module>customer</module>
@@ -38,18 +37,18 @@
         <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
 
-        <spring.datasource.url>jdbc:mysql://localhost:3306/jsj?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</spring.datasource.url>
-        <spring.datasource.username>jsj</spring.datasource.username>
-        <spring.datasource.password>jsj</spring.datasource.password>
+        <spring.datasource.url>jdbc:mysql://localhost:3306/gte?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</spring.datasource.url>
+        <spring.datasource.username>gte</spring.datasource.username>
+        <spring.datasource.password>gte</spring.datasource.password>
     </properties>
 
     <profiles>
         <profile>
             <id>test</id>
             <properties>
-                <spring.datasource.url>jdbc:mysql://localhost:3306/jsj?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</spring.datasource.url>
-                <spring.datasource.username>jsj</spring.datasource.username>
-                <spring.datasource.password>jsj</spring.datasource.password>
+                <spring.datasource.url>jdbc:mysql://localhost:3306/gte?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</spring.datasource.url>
+                <spring.datasource.username>gte</spring.datasource.username>
+                <spring.datasource.password>gte</spring.datasource.password>
             </properties>
         </profile>
         <profile>
