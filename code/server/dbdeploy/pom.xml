@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>gte</artifactId>
+        <artifactId>jsj</artifactId>
         <groupId>com.yitiankeji</groupId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
@@ -13,9 +13,9 @@
     <name>数据库版本控制</name>
 
     <properties>
-        <db.url>jdbc:mysql://www.yitiankeji.com:3306/gte?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</db.url>
-        <db.user>gte</db.user>
-        <db.password>gte</db.password>
+        <db.url>jdbc:mysql://www.yitiankeji.com:3306/jsj?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true</db.url>
+        <db.user>jsj</db.user>
+        <db.password>jsj</db.password>
     </properties>
 
     <build>
