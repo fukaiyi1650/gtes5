@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -42,7 +43,8 @@ public class ManagerController {
     }
 
     @GetMapping("/manager/edit")
-    public String edit() {
+    public String edit(Integer id, Model model) {
+        model.addAttribute("manager", managerApi.findById(id));
         return "/manager/edit";
     }
 
@@ -63,13 +65,13 @@ public class ManagerController {
 
     @ResponseBody
     @PostMapping("/manager/save")
-    public ResponseData save(@RequestBody Manager manager) {
+    public ResponseData save(Manager manager) {
         return managerApi.save(manager);
     }
 
     @ResponseBody
     @PostMapping("/manager/update")
-    public ResponseData update(@RequestBody Manager manager) {
+    public ResponseData update(Manager manager) {
         return managerApi.update(manager);
     }
 

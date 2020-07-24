@@ -4,7 +4,7 @@
 <@g.head "添加管理员" />
 <body>
 <article class="page-container">
-	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	<form action="${ctx}/manager/save" method="post" class="form form-horizontal" id="form-member-add">
 		<@g.textfield "account" "账号" />
 		<@g.textfield "password" "密码" />
 		<@g.textfield "name" "名称" />
@@ -13,9 +13,6 @@
 		<@g.textfield "sex" "性别" />
 		<@g.textfield "email" "邮箱" />
 		<@g.textfield "phone" "电话" />
-		<@g.textfield "status" "状态" />
-		<@g.textfield "createTime" "创建时间" />
-		<@g.textfield "version" "版本" />
 		<@g.submit />
 	</form>
 </article>
@@ -71,17 +68,19 @@
 				version:{
 					required:true
 				}
-		},
-		onkeyup:false,
-				focusCleanup:true,
-				success:"valid",
-				submitHandler:function(form){
-			//$(form).ajaxSubmit();
-			var index = parent.layer.getFrameIndex(window.name);
-			//parent.$('.btn-refresh').click();
-			parent.layer.close(index);
-		}
-	});
+			},
+			onkeyup:false,
+			focusCleanup:true,
+			success:"valid",
+			submitHandler:function(form){
+				$(form).ajaxSubmit(function(data) {
+					var index = parent.layer.getFrameIndex(window.name);
+					parent.layer.msg('添加成功!',{icon:1,time:1000});
+					parent.refresh();
+					parent.layer.close(index);
+				});
+			}
+		});
 	});
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
