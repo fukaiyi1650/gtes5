@@ -4,7 +4,7 @@
 <@g.head "添加管理员" />
 <body>
 <article class="page-container">
-	<form action="${ctx}/manager/save" method="post" class="form form-horizontal" id="form-member-add">
+	<form action="${ctx}/manager/save" method="post" class="form form-horizontal" id="dialog-form">
 		<@g.textfield "account" "账号" />
 		<@g.textfield "password" "密码" />
 		<@g.textfield "name" "名称" />
@@ -23,7 +23,7 @@
 <script type="text/javascript" src="${ctx}/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx}/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="${ctx}/lib/jquery.validation/1.14.0/messages_zh.js"></script>
-</@g.js>
+&lt;/@g.js>
 
 <script type="text/javascript">
 	$(function(){
@@ -33,7 +33,7 @@
 			increaseArea: '20%'
 		});
 
-		$("#form-member-add").validate({
+		$("#dialog-form").validate({
 			rules:{
 				account:{
 					required:true
@@ -58,21 +58,12 @@
 				},
 				phone:{
 					required:true
-				},
-				status:{
-					required:true
-				},
-				createTime:{
-					required:true
-				},
-				version:{
-					required:true
 				}
 			},
 			onkeyup:false,
 			focusCleanup:true,
 			success:"valid",
-			submitHandler:function(form){
+			submitHandler:function(form) {
 				$(form).ajaxSubmit(function(data) {
 					var index = parent.layer.getFrameIndex(window.name);
 					parent.layer.msg('添加成功!',{icon:1,time:1000});

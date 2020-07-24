@@ -1,7 +1,7 @@
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
-<@g.head "编辑管理员" />
+<@g.head "修改管理员" />
 <body>
 <article class="page-container">
 	<form action="${ctx}/manager/update" method="post" class="form form-horizontal" id="dialog-form">
@@ -19,12 +19,12 @@
 </article>
 
 <@g.js>
-	<!--请在下方写此页面业务相关的脚本-->
-	<script type="text/javascript" src="${ctx}/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-	<script type="text/javascript" src="${ctx}/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
-	<script type="text/javascript" src="${ctx}/lib/jquery.validation/1.14.0/validate-methods.js"></script>
-	<script type="text/javascript" src="${ctx}/lib/jquery.validation/1.14.0/messages_zh.js"></script>
-</@g.js>
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="${ctx}/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="${ctx}/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="${ctx}/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="${ctx}/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+&lt;/@g.js>
 
 <script type="text/javascript">
 	$(function(){
@@ -59,21 +59,12 @@
 				},
 				phone:{
 					required:true
-				},
-				status:{
-					required:true
-				},
-				createTime:{
-					required:true
-				},
-				version:{
-					required:true
 				}
 			},
 			onkeyup:false,
 			focusCleanup:true,
 			success:"valid",
-			submitHandler:function(form){
+			submitHandler:function(form) {
 				$(form).ajaxSubmit(function(data) {
 					var index = parent.layer.getFrameIndex(window.name);
 					parent.layer.msg('修改成功!',{icon:1,time:1000});

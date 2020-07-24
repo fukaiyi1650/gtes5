@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -42,7 +43,8 @@ public class ${entity}Controller {
     }
 
     @GetMapping("/${table.entityPath}/edit")
-    public String edit() {
+    public String edit(Integer id, Model model) {
+        model.addAttribute("${table.entityPath}", ${table.entityPath}Api.findById(id));
         return "/${table.entityPath}/edit";
     }
 
@@ -63,13 +65,13 @@ public class ${entity}Controller {
 
     @ResponseBody
     @PostMapping("/${table.entityPath}/save")
-    public ResponseData save(@RequestBody ${entity} ${table.entityPath}) {
+    public ResponseData save(${entity} ${table.entityPath}) {
         return ${table.entityPath}Api.save(${table.entityPath});
     }
 
     @ResponseBody
     @PostMapping("/${table.entityPath}/update")
-    public ResponseData update(@RequestBody ${entity} ${table.entityPath}) {
+    public ResponseData update(${entity} ${table.entityPath}) {
         return ${table.entityPath}Api.update(${table.entityPath});
     }
 
