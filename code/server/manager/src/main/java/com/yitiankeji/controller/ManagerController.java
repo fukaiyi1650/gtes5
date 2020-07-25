@@ -3,6 +3,7 @@ package com.yitiankeji.controller;
 import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yitiankeji.dto.ManagerRoleDto;
 import com.yitiankeji.entity.Manager;
 import com.yitiankeji.query.ManagerQuery;
 import com.yitiankeji.response.ResponseData;
@@ -28,6 +29,12 @@ public class ManagerController {
 
     @Autowired
     private ManagerService managerService;
+
+    @PostMapping("/manager/saveRoles")
+    public ResponseData saveRoles(@RequestBody ManagerRoleDto managerRoleDto) {
+        managerService.saveRoles(managerRoleDto.getManagerId(), managerRoleDto.getRoleIds());
+        return ResponseData.success();
+    }
 
     @RequestMapping("/manager/page")
     public IPage<Manager> page(@RequestBody ManagerQuery query){

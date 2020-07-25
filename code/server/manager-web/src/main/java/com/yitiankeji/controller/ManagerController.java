@@ -1,6 +1,7 @@
 package com.yitiankeji.controller;
 
 import com.yitiankeji.api.ManagerApi;
+import com.yitiankeji.dto.ManagerRoleDto;
 import com.yitiankeji.entity.Manager;
 import com.yitiankeji.query.ManagerQuery;
 import com.yitiankeji.response.Pagation;
@@ -46,6 +47,18 @@ public class ManagerController {
     public String edit(Integer id, Model model) {
         model.addAttribute("manager", managerApi.findById(id));
         return "/manager/edit";
+    }
+
+    @GetMapping("/manager/roles")
+    public String roles(Integer id, Model model) {
+        model.addAttribute("managerId", id);
+        return "/manager/roles";
+    }
+
+    @ResponseBody
+    @PostMapping("/manager/saveRoles")
+    public ResponseData saveRoles(ManagerRoleDto managerRoleDto) {
+        return managerApi.saveRoles(managerRoleDto);
     }
 
     @ResponseBody

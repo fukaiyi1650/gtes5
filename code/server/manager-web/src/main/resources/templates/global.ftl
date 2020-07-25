@@ -62,11 +62,11 @@
     </div>
 </#macro>
 
-<#macro textfield id label value="" required=true>
+<#macro textfield id label value="" value="" required=true>
     <div class="row cl">
         <label class="form-label col-xs-4 col-sm-3"><#if required><span class="c-red">*</span></#if>${label}：</label>
         <div class="formControls col-xs-8 col-sm-9">
-            <input type="text" class="input-text" value="" placeholder="" id="${id}" name="${id}">
+            <input type="text" class="input-text" value="${value}" placeholder="" id="${id}" name="${id}">
         </div>
     </div>
 </#macro>

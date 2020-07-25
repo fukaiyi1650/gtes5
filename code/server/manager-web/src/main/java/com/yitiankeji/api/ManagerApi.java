@@ -1,5 +1,6 @@
 package com.yitiankeji.api;
 
+import com.yitiankeji.dto.ManagerRoleDto;
 import com.yitiankeji.entity.Manager;
 import com.yitiankeji.query.ManagerQuery;
 import com.yitiankeji.response.ResponseData;
@@ -47,4 +48,7 @@ public interface ManagerApi {
 
     @GetMapping(value = "/manager/export", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     ResponseEntity<byte[]> export(@RequestParam Integer id);
+
+    @PostMapping("/manager/saveRoles")
+    public ResponseData saveRoles(@RequestBody ManagerRoleDto managerRoleDto);
 }

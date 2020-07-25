@@ -12,7 +12,7 @@
 	</div>
 	<@g.operate "/role/add.html" />
 	<div class="mt-20">
-	<table class="table table-border table-bordered table-hover table-bg table-sort"></table>
+	<table class="table table-border table-bordered table-hover table-bg table-sort" width="100%"></table>
 	</div>
 </div>
 

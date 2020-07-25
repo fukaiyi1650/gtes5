@@ -6,14 +6,15 @@
 <article class="page-container">
 	<form action="${ctx}/manager/update" method="post" class="form form-horizontal" id="dialog-form">
 		<input type="hidden" name="id" value="${manager.id}">
-		<@g.textfield "account" "账号" />
+		<@g.textfield "account" "账号" "${manager.account}" />
 		<@g.textfield "password" "密码" />
-		<@g.textfield "name" "名称" />
-		<@g.textfield "avatar" "头像" />
-		<@g.textfield "birthday" "生日" />
-		<@g.textfield "sex" "性别" />
-		<@g.textfield "email" "邮箱" />
-		<@g.textfield "phone" "电话" />
+		<@g.textfield "name" "名称" "${manager.name}" />
+		<@g.textfield "avatar" "头像" "${manager.avatar}" />
+		<#assign birthday=(manager.birthday?string("yyyy-MM-dd"))! />
+		<@g.textfield "birthday" "生日" birthday />
+		<@g.textfield "sex" "性别" "${manager.sex}" />
+		<@g.textfield "email" "邮箱" "${manager.email}" />
+		<@g.textfield "phone" "电话" "${manager.phone}" />
 		<@g.submit />
 	</form>
 </article>
@@ -24,7 +25,7 @@
 <script type="text/javascript" src="${ctx}/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx}/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="${ctx}/lib/jquery.validation/1.14.0/messages_zh.js"></script>
-&lt;/@g.js>
+</@g.js>
 
 <script type="text/javascript">
 	$(function(){

@@ -6,16 +6,12 @@
 <div class="page-container">
 	<div class="text-c">
 		<@g.text "account" "输入账号" />
-		<@g.text "password" "输入密码" />
 		<@g.text "name" "输入名称" />
 		<@g.text "avatar" "输入头像" />
 		<@g.text "birthday" "输入生日" />
 		<@g.text "sex" "输入性别" />
 		<@g.text "email" "输入邮箱" />
 		<@g.text "phone" "输入电话" />
-		<@g.text "status" "输入状态" />
-		<@g.text "createTime" "输入创建时间" />
-		<@g.text "version" "输入版本" />
 		<button type="submit" class="btn btn-success radius"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
 	</div>
 	<@g.operate "/manager/add.html" />
@@ -29,7 +25,8 @@
 	<script type="text/javascript" src="${ctx}/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 	<script type="text/javascript" src="${ctx}/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="${ctx}/lib/laypage/1.2/laypage.js"></script>
-	<script type="text/javascript" src="${ctx}/js/manager.js"></script>
+	<script type="text/javascript" src="${ctx}/js/manager/manager.js"></script>
+	<script type="text/javascript" src="${ctx}/js/manager/roles.js"></script>
 </@g.js>
 </body>
 </html>

@@ -84,6 +84,8 @@ public class Manager implements Serializable {
     private Integer status;
 
     /** 创建时间 */
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @TableField(value = "create_time", fill = FieldFill.INSERT)
     private Date createTime;
 

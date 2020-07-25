@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE HTML>
 <html>
-${r'<@'}g.head "xxx管理" />
+${r'<@'}g.head "${table.comment!}管理" />
 <body>
 ${r'<@'}g.breadcrumb ["${table.comment!}中心", "${table.comment!}管理"] />
 <div class="page-container">
 	<div class="text-c">
 		<#list table.fields as field>
 		<#if !field.keyFlag>
-			${r'<@'}g.text "${field.propertyName}" "输入${field.comment}" />
+		${r'<@'}g.text "${field.propertyName}" "输入${field.comment}" />
 		</#if>
 		</#list>
 		<button type="submit" class="btn btn-success radius"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
@@ -24,6 +24,6 @@ ${r'<@'}g.js>
 	<script type="text/javascript" src="${r'${ctx}'}/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="${r'${ctx}'}/lib/laypage/1.2/laypage.js"></script>
 	<script type="text/javascript" src="${r'${ctx}'}/js/${table.entityPath}.js"></script>
-${r'<@'}g.js>
+${r'</@'}g.js>
 </body>
 </html>

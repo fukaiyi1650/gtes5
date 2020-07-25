@@ -9,4 +9,15 @@
         <result column="role_id" property="roleId" />
     </resultMap>
 
+    <insert id="saveRoles">
+        insert into sys_manager_role(manager_id,role_id) values
+        <foreach collection="roleIds" item="roleId" separator=",">
+            (#{managerId},#{roleId})
+        </foreach>
+    </insert>
+
+    <delete id="deleteByManagerId">
+        delete from sys_manager_role where manager_id=#{managerId}
+    </delete>
+
 </mapper>

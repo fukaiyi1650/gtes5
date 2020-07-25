@@ -12,7 +12,7 @@ $('.table').myDataTable({
         {"mDataProp" : "status", "sTitle" : "状态", "sDefaultContent" : "", "sClass" : "center"},
         {"mDataProp" : "createTime", "sTitle" : "创建时间", "sDefaultContent" : "", "sClass" : "center"},
         {"mDataProp" : "id", "sTitle" : "操作", "sDefaultContent" : "", "sClass" : "center", "bSortable": false, "mRender" : function(data,type, row, meta) {
-                return "<a title=\"编辑\" href=\"javascript:;\" onclick=\"layer_show('编辑','/manager/edit.html?id="+row.id+"','','510')\" class=\"ml-5\" style=\"text-decoration:none\"><i class=\"Hui-iconfont\">&#xe6df;</i></a> <a title=\"删除\" href=\"javascript:;\" onclick=\"deleteById(this,"+row.id+")\" class=\"ml-5\" style=\"text-decoration:none\"><i class=\"Hui-iconfont\">&#xe6e2;</i></a>";
+                return "<a title=\"角色\" href=\"javascript:;\" onclick=\"layer_show('角色','/manager/roles.html?id="+row.id+"','','510')\" class=\"ml-5\" style=\"text-decoration:none\"><i class=\"Hui-iconfont\">&#xe631;</i></a> <a title=\"编辑\" href=\"javascript:;\" onclick=\"layer_show('编辑','/manager/edit.html?id="+row.id+"','','510')\" class=\"ml-5\" style=\"text-decoration:none\"><i class=\"Hui-iconfont\">&#xe6df;</i></a> <a title=\"删除\" href=\"javascript:;\" onclick=\"deleteById(this,"+row.id+")\" class=\"ml-5\" style=\"text-decoration:none\"><i class=\"Hui-iconfont\">&#xe6e2;</i></a>";
             }
         }
     ]

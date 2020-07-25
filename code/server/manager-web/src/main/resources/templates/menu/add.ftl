@@ -4,7 +4,7 @@
 <@g.head "添加菜单" />
 <body>
 <article class="page-container">
-	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	<form action="${ctx}/menu/save" method="post" class="form form-horizontal" id="dialog-form">
 		<@g.textfield "parentId" "父菜单ID" />
 		<@g.textfield "name" "名称" />
 		<@g.textfield "icon" "图标" />
@@ -34,7 +34,7 @@
 			increaseArea: '20%'
 		});
 
-		$("#form-member-add").validate({
+		$("#dialog-form").validate({
 			rules:{
 				parentId:{
 					required:true
@@ -63,17 +63,19 @@
 				remove:{
 					required:true
 				}
-		},
-		onkeyup:false,
-				focusCleanup:true,
-				success:"valid",
-				submitHandler:function(form){
-			//$(form).ajaxSubmit();
-			var index = parent.layer.getFrameIndex(window.name);
-			//parent.$('.btn-refresh').click();
-			parent.layer.close(index);
-		}
-	});
+			},
+			onkeyup:false,
+			focusCleanup:true,
+			success:"valid",
+			submitHandler:function(form) {
+				$(form).ajaxSubmit(function(data) {
+					var index = parent.layer.getFrameIndex(window.name);
+					parent.layer.msg('添加成功!',{icon:1,time:1000});
+					parent.refresh();
+					parent.layer.close(index);
+				});
+			}
+		});
 	});
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
