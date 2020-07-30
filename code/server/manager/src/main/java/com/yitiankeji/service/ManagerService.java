@@ -21,7 +21,7 @@ import java.util.List;
  * @since 2020-07-23
  */
 @Service
-@Transactional
+//@Transactional
 public class ManagerService extends ServiceImpl<ManagerMapper, Manager> {
 
     @Autowired
