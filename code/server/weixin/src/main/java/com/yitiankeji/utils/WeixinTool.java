@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 @Component
@@ -41,7 +40,7 @@ public class WeixinTool {
         }
     }
 
-    private String getAccessToken() {
+    String getAccessToken() {
         try {
             String result = Jsoup.connect("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appid + "&secret=" + secret).ignoreContentType(true).get().body().text();
             JSONObject json = JSONObject.fromObject(result);
@@ -51,4 +50,14 @@ public class WeixinTool {
         }
     }
 
+    public String getOpenId(String code) {
+        try {
+            String result = Jsoup.connect("https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + appid + "&secret=" + secret + "&code=" + code + "&grant_type=authorization_code").ignoreContentType(true).get().body().text();
+            JSONObject json = JSONObject.fromObject(result);
+            return (String) json.get("openid");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

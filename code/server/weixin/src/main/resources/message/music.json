@@ -1,0 +1,27 @@
+{
+  "touser": "{{OPENID}}",
+  "template_id": "4JaWyVi65gSfkiOa-CivpL0RljkOw_dZTAhxryBnUE0",
+  "url": "http://music.taihe.com/songlist/567026304",
+  "data": {
+    "first": {
+      "value": "恭喜你购买成功！\n",
+      "color": "#173177"
+    },
+    "昵称": {
+      "value": "巧克力\n",
+      "color": "#ff00ff"
+    },
+    "内容": {
+      "value": "39.8元\n",
+      "color": "#ffff00"
+    },
+    "时间": {
+      "value": "2014年9月22日\n",
+      "color": "#00ffff"
+    },
+    "remark": {
+      "value": "欢迎再次购买！",
+      "color": "#ff3333"
+    }
+  }
+}

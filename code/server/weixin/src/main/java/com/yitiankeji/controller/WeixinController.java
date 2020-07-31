@@ -1,7 +1,9 @@
 package com.yitiankeji.controller;
 
 import com.yitiankeji.utils.SHA1;
+import com.yitiankeji.utils.TemplateTool;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +34,9 @@ public class WeixinController {
     @Value("${weixin.token}")
     private String token;
 
+    @Autowired
+    private TemplateTool templateTool;
+
     @GetMapping("/wx/main")
     public String main(String signature, String timestamp, String nonce, String echostr) throws NoSuchAlgorithmException {
         // 1）将token、timestamp、nonce三个参数进行字典序排序
@@ -54,23 +59,39 @@ public class WeixinController {
     public void main(@RequestBody String xml, HttpServletResponse response) throws IOException, ParserConfigurationException, SAXException, XPathExpressionException {
         Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(new StringReader(xml)));
 
+        System.out.println(xml);
+
         XPath xpath = XPathFactory.newInstance().newXPath();
         String MsgType = (String) xpath.evaluate("/xml/MsgType/text()", document, XPathConstants.STRING);
         String ToUserName = (String) xpath.evaluate("/xml/ToUserName/text()", document, XPathConstants.STRING);
         String FromUserName = (String) xpath.evaluate("/xml/FromUserName/text()", document, XPathConstants.STRING);
-        String CreateTime = (String) xpath.evaluate("/xml/CreateTime/text()", document, XPathConstants.STRING);
-        String Content = (String) xpath.evaluate("/xml/Content/text()", document, XPathConstants.STRING);
-        String MsgId = (String) xpath.evaluate("/xml/MsgId/text()", document, XPathConstants.STRING);
 
         response.setCharacterEncoding("UTF-8");
         PrintWriter writer = response.getWriter();
-        writer.write("<xml>");
-        writer.write("  <ToUserName><![CDATA[" + FromUserName + "]]></ToUserName>");
-        writer.write("  <FromUserName><![CDATA[" + ToUserName + "]]></FromUserName>");
-        writer.write("  <CreateTime>1348831860</CreateTime>");
-        writer.write("  <MsgType><![CDATA[text]]></MsgType>");
-        writer.write("  <Content><![CDATA[服务器回复：" + Content + "]]></Content>");
-        writer.write("</xml>");
+        if ("text".equals(MsgType)) {
+            String Content = (String) xpath.evaluate("/xml/Content/text()", document, XPathConstants.STRING);
+
+            writer.write("<xml>");
+            writer.write("  <ToUserName><![CDATA[" + FromUserName + "]]></ToUserName>");
+            writer.write("  <FromUserName><![CDATA[" + ToUserName + "]]></FromUserName>");
+            writer.write("  <CreateTime>1348831860</CreateTime>");
+            writer.write("  <MsgType><![CDATA[text]]></MsgType>");
+            writer.write("  <Content><![CDATA[服务器回复：" + Content + "]]></Content>");
+            writer.write("</xml>");
+        } else if ("event".equals(MsgType)) {
+            String EventKey = (String) xpath.evaluate("/xml/EventKey/text()", document, XPathConstants.STRING);
+            if ("V1001_TODAY_MUSIC".equals(EventKey)) { // 今日歌曲
+                templateTool.sendMusicMessage(FromUserName);
+            } else if ("V1001_GOOD".equals(EventKey)) { // 赞我们一下
+                writer.write("<xml>");
+                writer.write("  <ToUserName><![CDATA[" + FromUserName + "]]></ToUserName>");
+                writer.write("  <FromUserName><![CDATA[" + ToUserName + "]]></FromUserName>");
+                writer.write("  <CreateTime>1348831860</CreateTime>");
+                writer.write("  <MsgType><![CDATA[text]]></MsgType>");
+                writer.write("  <Content><![CDATA[服务器回复：谢谢对我们的支持，最好能捐款]]></Content>");
+                writer.write("</xml>");
+            }
+        }
 
         writer.flush();
         writer.close();
