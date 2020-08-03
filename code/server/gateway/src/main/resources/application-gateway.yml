@@ -29,3 +29,13 @@ spring:
             - Path=/member/**
           filters:
             - StripPrefix=1
+        - id: weixin-service
+          uri: lb://weixin-service/
+          predicates:
+            - Path=/wx/**
+          filters:
+            - StripPrefix=1
+        - id: weixin-vue
+          uri: http://localhost:2001/
+          predicates:
+            - Path=/**
