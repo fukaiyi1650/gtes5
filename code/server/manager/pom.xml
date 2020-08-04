@@ -12,11 +12,16 @@
     <name>后台管理</name>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>com.yitiankeji</groupId>-->
-<!--            <artifactId>oauth2-common</artifactId>-->
-<!--            <version>1.0.0</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.yitiankeji</groupId>-->
+        <!--            <artifactId>oauth2-common</artifactId>-->
+        <!--            <version>1.0.0</version>-->
+        <!--        </dependency>-->
+        <dependency>
+            <groupId>com.yitiankeji</groupId>
+            <artifactId>logger</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.yitiankeji</groupId>
             <artifactId>manager-model</artifactId>

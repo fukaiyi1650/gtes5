@@ -18,17 +18,18 @@
 
     <modules>
         <module>customer</module>
+        <module>dbdeploy</module>
         <module>gateway</module>
         <module>generator</module>
+        <module>manager</module>
+        <module>manager-model</module>
         <module>manager-web</module>
+        <module>model</module>
         <module>monitor</module>
+        <module>logger</module>
         <module>oauth2</module>
         <module>oauth2-client</module>
         <module>oauth2-common</module>
-        <module>dbdeploy</module>
-        <module>manager</module>
-        <module>manager-model</module>
-        <module>model</module>
         <module>weixin</module>
     </modules>
 
@@ -99,6 +100,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream -->
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.12</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
